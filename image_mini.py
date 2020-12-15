@@ -44,7 +44,7 @@ array = np.array(pixels, dtype=np.uint8)
 
 # Use PIL to create an image from the new array of pixels
 new_image = Image.fromarray(array)
-new_image.save('new'+picture)
+new_image.save('C:/Users/SEDan/Documents/image_mini/image_mini/images/new'+picture)
 end = time.time()
 
 total = end-start
