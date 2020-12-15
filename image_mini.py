@@ -1,25 +1,34 @@
 from PIL import Image
 import numpy as np
+import time
+
+start = time.time()
 
 
 
-path = 'C:/Users/SEDan/Documents/image_mini/image_mini/images/image.jpg'
+path = 'C:/Users/SEDan/Documents/image_mini/image_mini/images/'
+picture = str(input('Name of picture file? '))
+path = path + picture
 img = Image.open(path)
 
-def clone(image):
+def clone(image,n):
 	#takes an image and returns a clone that is made of blocks of the original image
 	width, height = img.size 
-	#size of blocks is predetermined to be 10x10 pixels
+	#size of blocks is predetermined to be nxn pixels
 	pixels = []
-	for i in range(height):
-		row = []
-		j = 0
-		while j < width:
-			for k in range(10):
-				row.append(img.getpixel((j,i)))
-			j += 10
-		pixels.append(row)
-	print(pixels)
+	i = 0
+	while i < height:
+		for l in range(n):
+			row = []
+			j = 0
+			while j < width:
+				for k in range(n):
+					row.append(img.getpixel((j,i)))
+				j += n
+			pixels.append(row)
+		i += n
+	return pixels
+	
 
 
 
@@ -27,14 +36,18 @@ def clone(image):
 
 			
 
-clone(img)
+pixels = clone(img,100)
 
 
-# # Convert the pixels into an array using numpy
-# array = np.array(pixels, dtype=np.uint8)
+# Convert the pixels into an array using numpy
+array = np.array(pixels, dtype=np.uint8)
 
-# # Use PIL to create an image from the new array of pixels
-# new_image = Image.fromarray(array)
-# new_image.save('new.png')
+# Use PIL to create an image from the new array of pixels
+new_image = Image.fromarray(array)
+new_image.save('new'+picture)
+end = time.time()
+
+total = end-start
+print(total)
 
 
