@@ -36,7 +36,7 @@ def clone(image,n):
 
 			
 
-pixels = clone(img,150)
+pixels = clone(img,15)
 
 
 # Convert the pixels into an array using numpy
