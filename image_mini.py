@@ -6,7 +6,7 @@ start = time.time()
 
 
 
-path = 'C:/Users/SEDan/Documents/image_mini/image_mini/images/'
+path = 'C:/Users/SEDan/Documents/github/image_mini/images/'
 picture = str(input('Name of picture file? '))
 path = path + picture
 img = Image.open(path)
@@ -36,7 +36,7 @@ def clone(image,n):
 
 			
 
-pixels = clone(img,15)
+pixels = clone(img,25)
 
 
 # Convert the pixels into an array using numpy
@@ -44,7 +44,7 @@ array = np.array(pixels, dtype=np.uint8)
 
 # Use PIL to create an image from the new array of pixels
 new_image = Image.fromarray(array)
-new_image.save('C:/Users/SEDan/Documents/image_mini/image_mini/images/new'+picture)
+new_image.save('C:/Users/SEDan/Documents/github/image_mini/images/new'+picture)
 end = time.time()
 
 total = end-start
